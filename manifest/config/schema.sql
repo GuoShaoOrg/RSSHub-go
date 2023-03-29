@@ -20,7 +20,7 @@ create table
         date date null,
         author varchar(128) null,
         input_date datetime null,
-        rss_link varchar(128) null,
+        rssLink varchar(128) null,
         thumbnail varchar(256) null,
         channelImageUrl varchar(256) null,
         channelTitle varchar(256) null,
