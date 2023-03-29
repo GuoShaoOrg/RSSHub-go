@@ -4,4 +4,4 @@ if [[ ! -e $LOGS_DIR ]]; then
 elif [[ ! -d $LOGS_DIR ]]; then
     echo "$LOGS_DIR already exists but is not a directory" 1>&2
 fi
-docker run --name rssgo --network host --log-opt max-size=500m --log-opt max-file=3 -v $HOME/mysql/data:/app/logs -d beegedelow/rsshub
+docker run --name rssgo --network host --log-opt max-size=500m --log-opt max-file=3 -v $LOGS_DIR:/app/logs -d beegedelow/rsshub
