@@ -6,20 +6,6 @@ create table if not exists rss_feed_channel (
     link varchar(128) null,
     rss_link varchar(128) null
 );
--- create table if not exists rss_feed_item (
---     id varchar(64) not null primary key,
---     channel_id varchar(64) not null,
---     title mediumtext null,
---     content mediumtext null,
---     link varchar(128) null,
---     date date null,
---     author varchar(128) null,
---     input_date datetime null,
---     thumbnail varchar(128) null,
---     description mediumtext null
--- );
--- create index rfi_idx_channel_id on rss_feed_item (channel_id);
-
 -- MySQL fulltext search table
 create table if not exists rss_feed_item (
     id varchar(64) not null primary key,
@@ -35,15 +21,6 @@ create table if not exists rss_feed_item (
     FULLTEXT KEY rss_feed_item_fts_key (title, content, author, description) WITH PARSER ngram
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 create index rfi_idx_channel_id on rss_feed_item (channel_id);
--- create table if not exists rss_feed_tag
--- (
---     name       varchar(64) not null,
---     channel_id varchar(64) not null,
---     title      mediumtext  null,
---     date       date        null
--- );
--- create index rss_feed_tag_idx_name
---     on rss_feed_tag (name);
 create table if not exists user_info (
     uid varchar(32) not null primary key,
     password varchar(32) not null,
